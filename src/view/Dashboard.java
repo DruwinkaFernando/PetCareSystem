@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,11 +12,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public class Dashboard extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel Dashboard;
+	private JPanel Controlpanel;
+	private CardLayout cardLayout;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -48,30 +54,37 @@ public class Dashboard extends JFrame {
 		
 		JButton petbutton = new JButton("Pets");
 		petbutton.setForeground(new Color(128, 128, 192));
-		petbutton.setBackground(new Color(128, 128, 255));
+		petbutton.setBackground(new Color(224, 255, 255));
 		petbutton.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		petbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		petbutton.setBounds(0, 78, 147, 57);
+		petbutton.setBounds(0, 49, 147, 57);
 		Dashboard.add(petbutton);
 		
 		JButton doctorbutton = new JButton("Doctors");
 		doctorbutton.setForeground(new Color(128, 128, 192));
 		doctorbutton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		doctorbutton.setBackground(new Color(17, 17, 255));
-		doctorbutton.setBounds(0, 130, 147, 57);
+		doctorbutton.setBackground(new Color(224, 255, 255));
+		doctorbutton.setBounds(0, 103, 147, 57);
 		Dashboard.add(doctorbutton);
 		
 		JButton appointment = new JButton("Appointment");
 		appointment.setHorizontalAlignment(SwingConstants.LEFT);
 		appointment.setForeground(new Color(128, 128, 192));
 		appointment.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		appointment.setBackground(new Color(64, 0, 64));
-		appointment.setBounds(0, 184, 147, 57);
+		appointment.setBackground(new Color(224, 255, 255));
+		appointment.setBounds(0, 158, 147, 57);
 		Dashboard.add(appointment);
+		
+		Controlpanel = new JPanel();
+		Controlpanel.setBounds(146, 49, 820, 464);
+		cardLayout = new CardLayout();
+		Controlpanel.setLayout(cardLayout);
+		Dashboard.add(Controlpanel);
+
+
 
 	}
-
 }

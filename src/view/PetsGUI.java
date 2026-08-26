@@ -48,12 +48,12 @@ public class PetsGUI extends JPanel {
 		btnCat.setFont(new Font("Century", Font.BOLD, 33));
 		petMenu.add(btnCat);
 		
-		JButton btnParrot = new JButton("Parrot");
+		JButton btnBird = new JButton("Bird");
 		btnParrot .setHorizontalAlignment(SwingConstants.LEFT);
 		btnParrot .setBounds(0, 193, 980, 98);
 		btnParrot .setBackground(new Color(128, 255, 128));
 		btnParrot .setFont(new Font("Century", Font.BOLD, 33));
-		petMenu.add(btnParrot );
+		petMenu.add(btnBird );
 		
 		mainPanel.add(petMenu, "PetMenu");
 		cardLayout.show(mainPanel, "PetMenu");

@@ -21,7 +21,6 @@ public class Dashboard extends JFrame {
 	private JPanel Controlpanel;
 	private CardLayout cardLayout;
 	
-	
 
 	/**
 	 * Launch the application.
@@ -46,6 +45,7 @@ public class Dashboard extends JFrame {
 		setBackground(new Color(128, 128, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 980, 550);
+		setResizable(false);
 		Dashboard = new JPanel();
 		Dashboard.setBackground(new Color(128, 128, 192));
 		Dashboard.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,31 +58,59 @@ public class Dashboard extends JFrame {
 		petbutton.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		petbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(Controlpanel, "Pet");
 			}
 		});
 		petbutton.setBounds(0, 49, 147, 57);
 		Dashboard.add(petbutton);
 		
-		JButton doctorbutton = new JButton("Doctors");
-		doctorbutton.setForeground(new Color(128, 128, 192));
-		doctorbutton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		doctorbutton.setBackground(new Color(224, 255, 255));
-		doctorbutton.setBounds(0, 103, 147, 57);
-		Dashboard.add(doctorbutton);
+		JButton Ownerbutton = new JButton("Owner");
+		Ownerbutton.setForeground(new Color(128, 128, 192));
+		Ownerbutton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Ownerbutton.setBackground(new Color(224, 255, 255));
+		Ownerbutton.setBounds(0, 103, 147, 57);
+		Ownerbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(Controlpanel, "Owner");
+			}
+		});
 		
-		JButton appointment = new JButton("Appointment");
-		appointment.setHorizontalAlignment(SwingConstants.LEFT);
-		appointment.setForeground(new Color(128, 128, 192));
-		appointment.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		appointment.setBackground(new Color(224, 255, 255));
-		appointment.setBounds(0, 158, 147, 57);
-		Dashboard.add(appointment);
+		Dashboard.add(Ownerbutton);
+		
+		JButton appointmentbutton = new JButton("Appointment");
+		appointmentbutton.setHorizontalAlignment(SwingConstants.LEFT);
+		appointmentbutton.setForeground(new Color(128, 128, 192));
+		appointmentbutton.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		appointmentbutton.setBackground(new Color(224, 255, 255));
+		appointmentbutton.setBounds(0, 158, 147, 57);
+		appointmentbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(Controlpanel, "Appointment");
+			}
+		});
+		Dashboard.add(appointmentbutton);
 		
 		Controlpanel = new JPanel();
-		Controlpanel.setBounds(146, 49, 820, 464);
+		Controlpanel.setBounds(144, 49, 822, 464);
+		Dashboard.add(Controlpanel);
 		cardLayout = new CardLayout();
 		Controlpanel.setLayout(cardLayout);
-		Dashboard.add(Controlpanel);
+		
+		JPanel Blankpanel = new JPanel();
+		Blankpanel.setBackground(Color.WHITE);
+		
+		PetsGUI Petpanel = new PetsGUI();
+		
+		JPanel Ownerpanel = new JPanel();
+		Ownerpanel.setBackground(Color.CYAN);
+		JPanel Appointmentpanel = new JPanel();
+		Appointmentpanel.setBackground(Color.PINK);
+		
+		Controlpanel.add(Blankpanel, "Dashboard");
+		Controlpanel.add(Petpanel, "Pet");
+		Controlpanel.add(Ownerpanel, "Owner");
+		Controlpanel.add(Appointmentpanel, "Appointment");
+		cardLayout.show(Controlpanel, "Dashboard");
 
 
 

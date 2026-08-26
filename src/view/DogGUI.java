@@ -21,7 +21,7 @@ public class DogGUI extends JPanel {
 		JButton btnGoldenRetriever = new JButton("Golden Retriever");
 		btnGoldenRetriever.setHorizontalAlignment(SwingConstants.LEFT);
 		btnGoldenRetriever.setFont(new Font("Century", Font.BOLD, 33));
-		btnGoldenRetriever.setBackground(new Color(255, 255, 0));
+		btnGoldenRetriever.setBackground(new Color(255, 254, 0));
 		btnGoldenRetriever.setBounds(0, 0, 980, 98);
 		add(btnGoldenRetriever);
 		

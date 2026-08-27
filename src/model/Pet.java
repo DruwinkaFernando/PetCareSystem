@@ -80,7 +80,7 @@ package model;
   }
   public void setSpecies(String Species)
   {
-    this.species = species
+    this.species = species;
   }
   public void setAge(int age)
   {
@@ -91,23 +91,23 @@ package model;
   }
   public void setGender(String gender)
   {
-     this.gender = gender
+     this.gender = gender;
   }
   public void setColor(String color)
   {
-    this.color = color
+    this.color = color;
   }
   public void setHealthStatus(String healthStatus)
   {
-    this.healthStatus = healthStatus
+    this.healthStatus = healthStatus;
   }
   public void setVaccinationStatus(String vaccinationStatus)
   {
-    this.vaccinationStatus = vaccinationStatus
+    this.vaccinationStatus = vaccinationStatus;
   }
   public void setNotes(String notes)
   {
-    this.notes = notes
+    this.notes = notes;
   }
 
   //Display Pet Information

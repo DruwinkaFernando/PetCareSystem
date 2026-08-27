@@ -11,7 +11,7 @@ public class Dog extends Pet
     this.exerciseNeeds = exerciseNeeds;
   }
 
-  public String GetTrainingStatus()
+  public String getTrainingStatus()
   {
     return trainingStatus;
   }
@@ -19,7 +19,7 @@ public class Dog extends Pet
   {
     this.trainingStatus = trainingStatus;
   }
-  public String GetExerciseNeeds()
+  public String getExerciseNeeds()
   {
     return exerciseNeeds;
   }

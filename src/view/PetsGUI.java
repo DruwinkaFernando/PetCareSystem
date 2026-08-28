@@ -140,12 +140,12 @@ public class PetsGUI extends BaseFormGUI
 
         JOptionPane.showMessageDialog(this, "Pet added successfully!");
 
-    } 
-	catch (NumberFormatException ex) 
-	{
-		JOptionPane.showMessageDialog(this, "Pet ID and Age must be numbers.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-    }
-}
+   	 	} 
+		catch (NumberFormatException ex) 
+		{
+			JOptionPane.showMessageDialog(this, "Pet ID and Age must be numbers.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+    	}
+	}
 
 	// Getters
 	public JTextField getTxtPetID()
@@ -197,5 +197,4 @@ public class PetsGUI extends BaseFormGUI
 	{
 		reurn txtNotes;
 	}	   
-			
-	}
+}

@@ -14,6 +14,7 @@ public class PetsGUI extends JPanel
 	{
 		private static final long serialVersionUID = 1L;
 		private CardLayout cardLayout;
+		private JPanel mainPanel;
 	
 		/**
 		 * Create the panel.
@@ -22,7 +23,7 @@ public class PetsGUI extends JPanel
 		{
 			setPreferredSize(new Dimension(980, 550));
 			setLayout(null);
-			JPanel mainPanel = new JPanel();
+			mainPanel = new JPanel();
 			mainPanel.setBounds(0, 0, 980, 550);
 			cardLayout = new CardLayout();
 			mainPanel.setLayout(cardLayout);
@@ -49,6 +50,13 @@ public class PetsGUI extends JPanel
 			btnCat.setBounds(0, 95, 980, 98);
 			btnCat.setBackground(new Color(255, 128, 0));
 			btnCat.setFont(new Font("Century", Font.BOLD, 33));
+			btnCat.addActionListener(new ActionListener() 
+			{
+			    public void actionPerformed(ActionEvent e) 
+				{
+			        cardLayout.show(mainPanel, "Cat");
+			    }
+			});
 			petMenu.add(btnCat);
 			
 			JButton btnBird = new JButton("Bird");
@@ -56,18 +64,44 @@ public class PetsGUI extends JPanel
 			btnBird .setBounds(0, 193, 980, 98);
 			btnBird .setBackground(new Color(128, 255, 128));
 			btnBird .setFont(new Font("Century", Font.BOLD, 33));
+			btnBird.addActionListener(new ActionListener() 
+			{
+			    public void actionPerformed(ActionEvent e) 
+				{
+			        cardLayout.show(mainPanel, "Bird");
+			    }
+			});
 			petMenu.add(btnBird );
+
+			JButton btnRabbit = new JButton("Rabbit");
+			btnRabbit .setHorizontalAlignment(SwingConstants.LEFT);
+			btnRabbit .setBounds(0, 291, 980, 98);
+			btnRabbit .setBackground(new Color(255, 204, 204));
+			btnRabbit .setFont(new Font("Century", Font.BOLD, 33));
+			btnRabbit .addActionListener(new ActionListener() 
+			{
+			    public void actionPerformed(ActionEvent e) 
+				{
+			        cardLayout.show(mainPanel, "Rabbit");
+			    }
+			});
+			petMenu.add(btnRabbit );
 			
 			mainPanel.add(petMenu, "PetMenu");
 			cardLayout.show(mainPanel, "PetMenu");
 			
 	
 			DogGUI dogPanel = new DogGUI();
-	
-	
-			
-	
 			mainPanel.add(dogPanel, "Dog");
+
+			CatGUI catPanel = new CatGUI();
+			mainPanel.add(CatPanel, "Cat");
+			
+			BirdGUI birdPanel = new BirdGUI();
+			mainPanel.add(birdPanel, "Bird");
+
+			RabbitGUI rabbitPanel = new RabbitGUI();
+			mainPanel.add(rabbitPanel, "Rabbit");
 	
 		}
 	

@@ -17,7 +17,7 @@ public class VeterinariansGUI extends BaseFormGUI {
 	 * Create the panel.
 	 */
 	public VeterinariansGUI() {
-		super("Veterinarian Details",
+		super("Veterinarians", "Manage veterinarian records and availability",
 				new String[] {"ID", "Name", "Specialization", "Contact No", "Email", "License No", "Status"});
 	}
 

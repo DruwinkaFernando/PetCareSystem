@@ -24,13 +24,13 @@ package model;
     this.color = color;
     this.healthStatus = healthStatus;
     this.vaccinationStatus = vaccinationStatus;
-    this.note = notes;
+    this.notes = notes;
   }
 
   //Getter
   public int getPetID()
   {
-    return PetID;
+    return petID;
   }
   public String getName()
   {
@@ -78,9 +78,13 @@ package model;
   {
     this.name = name;
   }
-  public void setSpecies(String Species)
+  public void setSpecies(String species)
   {
     this.species = species;
+  }
+  public void setBreed(String  breed)
+  {
+    this.breed = breed;
   }
   public void setAge(int age)
   {
@@ -128,6 +132,6 @@ package model;
   @Override
   public String toString()
     {
-      return name + " (" + Species + " - " + breed ")";
+      return name + " (" + species + " - " + breed ")";
     }
 }

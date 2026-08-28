@@ -97,56 +97,53 @@ public class PetsGUI extends BaseFormGUI
 		return 5;
 	}
  
-private void addPet() {
-
-    try {
-        int petID = Integer.parseInt(txtPetID.getText().trim());
-        String name = txtName.getText().trim();
-        String species = (String) cmbSpecies.getSelectedItem();
-        String breed = txtBreed.getText().trim();
-        int age = Integer.parseInt(txtAge.getText().trim());
-        String gender = (String) cmbGender.getSelectedItem();
-        String color = txtColor.getText().trim();
-        String healthStatus = txtHealthStatus.getText().trim();
-        String vaccinationStatus =
-                (String) cmbVaccinationStatus.getSelectedItem();
-        String notes = txtNotes.getText().trim();
-
-        Pet pet = new Pet(
-                petID,
-                name,
-                species,
-                breed,
-                age,
-                gender,
-                color,
-                healthStatus,
-                vaccinationStatus,
-                notes
-        );
-
-        getTableModel().addRow(new Object[] {
-                pet.getPetID(),
-                pet.getName(),
-                pet.getSpecies(),
-                pet.getBreed(),
-                pet.getAge(),
-                pet.getGender(),
-                pet.getColor(),
-                pet.getHealthStatus(),
-                pet.getVaccinationStatus(),
-                pet.getNotes()
+	private void addPet() 
+	{
+		try 
+		{
+	        int petID = Integer.parseInt(txtPetID.getText().trim());
+	        String name = txtName.getText().trim();
+	        String species = (String) cmbSpecies.getSelectedItem();
+	        String breed = txtBreed.getText().trim();
+	        int age = Integer.parseInt(txtAge.getText().trim());
+	        String gender = (String) cmbGender.getSelectedItem();
+	        String color = txtColor.getText().trim();
+	        String healthStatus = txtHealthStatus.getText().trim();
+	        String vaccinationStatus = (String) cmbVaccinationStatus.getSelectedItem();
+	        String notes = txtNotes.getText().trim();
+	
+	        Pet pet = new Pet(
+	                petID,
+	                name,
+	                species,
+	                breed,
+	                age,
+	                gender,
+	                color,
+	                healthStatus,
+	                vaccinationStatus,
+	                notes
+	        );
+	
+	        getTableModel().addRow(new Object[] {
+	                pet.getPetID(),
+	                pet.getName(),
+	                pet.getSpecies(),
+	                pet.getBreed(),
+	                pet.getAge(),
+	                pet.getGender(),
+	                pet.getColor(),
+	                pet.getHealthStatus(),
+	                pet.getVaccinationStatus(),
+	                pet.getNotes()
         });
 
-        JOptionPane.showMessageDialog(this,
-                "Pet added successfully!");
+        JOptionPane.showMessageDialog(this, "Pet added successfully!");
 
-    } catch (NumberFormatException ex) {
-
-        JOptionPane.showMessageDialog(this,
-                "Pet ID and Age must be numbers.",
-                "Invalid Input",
-                JOptionPane.ERROR_MESSAGE);
+    } 
+	catch (NumberFormatException ex) 
+	{
+		JOptionPane.showMessageDialog(this, "Pet ID and Age must be numbers.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
     }
 }
 

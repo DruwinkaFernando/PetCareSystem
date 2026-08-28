@@ -144,46 +144,6 @@ public class PetsGUI extends BaseFormGUI
 	public JTextField getTxtNotes()
 	{
 		reurn txtNotes;
-	}
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-			
-			   
+	}	   
 			
 	}

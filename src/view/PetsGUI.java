@@ -1,26 +1,46 @@
 package view;
 
-import javax.swing.JPanel;
-import java.awt.Dimension;
-import javax.swing.JButton;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.CardLayout;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt;
 
-public class PetsGUI extends JPanel
-	{
-		private static final long serialVersionUID = 1L;
-		private CardLayout cardLayout;
-		private JPanel mainPanel;
+public class PetsGUI extends BaseFormGUI
+{
+	private static final long serialVersionUID = 1L;
+	
+	private JTextField txtPetID;
+	private JTextField txtName;
+	private JComboBox<String> cmbSpecies;
+	private JTextField txtBreed;
+	private JTextField txtAge;
+	private JComboBox<String> cmbGender;
+	private JTextField txtColor;
+	private JTextField txtHealthStatus;
+	private JComboBox<String> cmbVaccinationStatus;
+	private JTextField txtNotes;
 	
 		/**
 		 * Create the panel.
 		 */
 		public PetsGUI() 
 		{
+			super("Pet Management", "Add, update, or manage pet information", new String[]
+				  {
+					  "Pet ID", "Name", "Species", "Breed", "Age", "Gender", "Color", "Health Status", "Vaccination", "Notes"
+				  });
+		}
+
+
+		@Override
+		protected int addFields(JPanel formPanel)
+		{
+			//Row 0: Pet ID / Name
+			formPanel.add(new JLabel("Pet ID:"), gbc(0, 0, 1, false));
+			txtPetID new JTextField(10);
+			formPanel.add(textPetID, gbc(1, 0, 1, true));
+
+			formPanel.add(new JLabel("Name:"), gbc(2, 0, 1, false));
+			txtName = new 
+		}
 			setPreferredSize(new Dimension(980, 550));
 			setLayout(null);
 			mainPanel = new JPanel();

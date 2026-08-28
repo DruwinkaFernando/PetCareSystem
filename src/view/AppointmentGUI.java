@@ -1,126 +1,75 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class AppointmentGUI extends JPanel {
+public class AppointmentGUI extends BaseFormGUI {
 	private static final long serialVersionUID = 1L;
 
-	private JTextField txtPatientName;
-	private JTextField txtDoctor;
+	private JTextField txtPetName;
+	private JTextField txtOwnerName;
+	private JComboBox<String> cmbServiceType;
 	private JTextField txtDate;
 	private JTextField txtTime;
+	private JTextField txtStaff;
 	private JTextArea txtNotes;
-
-	private JButton btnAdd;
-	private JButton btnUpdate;
-	private JButton btnDelete;
-	private JButton btnClear;
-
-	private JTable table;
-	private DefaultTableModel tableModel;
 
 	/**
 	 * Create the panel.
 	 */
 	public AppointmentGUI() {
-		setLayout(new BorderLayout(10, 10));
-		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-		add(buildFormPanel(), BorderLayout.NORTH);
-		add(buildTablePanel(), BorderLayout.CENTER);
+		super("Appointment details", "Book, update, or cancel appointments",
+				new String[] {"ID", "Pet Name", "Owner", "Service", "Date", "Time", "Staff", "Notes"});
 	}
 
-	private JPanel buildFormPanel() {
-		JPanel formPanel = new JPanel(new GridBagLayout());
-		formPanel.setBorder(BorderFactory.createTitledBorder("Appointment Details"));
+	@Override
+	protected int addFields(JPanel formPanel) {
+		// Row 0: Pet Name / Owner Name
+		formPanel.add(new JLabel("Pet Name:"), gbc(0, 0, 1, false));
+		txtPetName = new JTextField(15);
+		formPanel.add(txtPetName, gbc(1, 0, 1, true));
 
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(5, 5, 5, 5);
-		gbc.fill = GridBagConstraints.HORIZONTAL;
+		formPanel.add(new JLabel("Owner Name:"), gbc(2, 0, 1, false));
+		txtOwnerName = new JTextField(15);
+		formPanel.add(txtOwnerName, gbc(3, 0, 1, true));
 
-		// Row 0
-		gbc.gridx = 0; gbc.gridy = 0;
-		formPanel.add(new JLabel("Patient Name:"), gbc);
-		gbc.gridx = 1;
-		txtPatientName = new JTextField(15);
-		formPanel.add(txtPatientName, gbc);
+		// Row 1: Service Type / Assigned Staff
+		formPanel.add(new JLabel("Service Type:"), gbc(0, 1, 1, false));
+		cmbServiceType = new JComboBox<>(new String[] {
+				"Vet Checkup", "Vaccination", "Grooming", "Surgery", "Dental Care", "Boarding"
+		});
+		formPanel.add(cmbServiceType, gbc(1, 1, 1, true));
 
-		gbc.gridx = 2;
-		formPanel.add(new JLabel("Doctor:"), gbc);
-		gbc.gridx = 3;
-		txtDoctor = new JTextField(15);
-		formPanel.add(txtDoctor, gbc);
+		formPanel.add(new JLabel("Assigned Staff:"), gbc(2, 1, 1, false));
+		txtStaff = new JTextField(15);
+		formPanel.add(txtStaff, gbc(3, 1, 1, true));
 
-		// Row 1
-		gbc.gridx = 0; gbc.gridy = 1;
-		formPanel.add(new JLabel("Date (yyyy-mm-dd):"), gbc);
-		gbc.gridx = 1;
+		// Row 2: Date / Time
+		formPanel.add(new JLabel("Date (yyyy-mm-dd):"), gbc(0, 2, 1, false));
 		txtDate = new JTextField(15);
-		formPanel.add(txtDate, gbc);
+		formPanel.add(txtDate, gbc(1, 2, 1, true));
 
-		gbc.gridx = 2;
-		formPanel.add(new JLabel("Time (HH:mm):"), gbc);
-		gbc.gridx = 3;
+		formPanel.add(new JLabel("Time (HH:mm):"), gbc(2, 2, 1, false));
 		txtTime = new JTextField(15);
-		formPanel.add(txtTime, gbc);
+		formPanel.add(txtTime, gbc(3, 2, 1, true));
 
-		// Row 2 - Notes
-		gbc.gridx = 0; gbc.gridy = 2;
-		formPanel.add(new JLabel("Notes:"), gbc);
-		gbc.gridx = 1; gbc.gridwidth = 3;
+		// Row 3: Notes
+		formPanel.add(new JLabel("Notes:"), gbc(0, 3, 1, false));
 		txtNotes = new JTextArea(3, 20);
 		txtNotes.setLineWrap(true);
+		txtNotes.setWrapStyleWord(true);
 		JScrollPane notesScroll = new JScrollPane(txtNotes);
-		formPanel.add(notesScroll, gbc);
-		gbc.gridwidth = 1;
+		formPanel.add(notesScroll, gbc(1, 3, 3, true));
 
-		// Row 3 - Buttons
-		gbc.gridx = 0; gbc.gridy = 3;
-		btnAdd = new JButton("Add");
-		formPanel.add(btnAdd, gbc);
-
-		gbc.gridx = 1;
-		btnUpdate = new JButton("Update");
-		formPanel.add(btnUpdate, gbc);
-
-		gbc.gridx = 2;
-		btnDelete = new JButton("Delete");
-		formPanel.add(btnDelete, gbc);
-
-		gbc.gridx = 3;
-		btnClear = new JButton("Clear");
-		formPanel.add(btnClear, gbc);
-
-		return formPanel;
+		return 4; // next free row, where BaseFormGUI places the button row
 	}
 
-	private JScrollPane buildTablePanel() {
-		String[] columns = {"ID", "Patient Name", "Doctor", "Date", "Time", "Notes"};
-		tableModel = new DefaultTableModel(columns, 0) {
-			private static final long serialVersionUID = 1L;
-			@Override
-			public boolean isCellEditable(int row, int column) {
-				return false; // table is read-only; edits happen via the form
-			}
-		};
-		table = new JTable(tableModel);
-		table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
-		return new JScrollPane(table);
-	}
-
-	// Getters so a controller class can wire up listeners and read field values
-	public JTextField getTxtPatientName() { return txtPatientName; }
-	public JTextField getTxtDoctor() { return txtDoctor; }
+	// Getters specific to this panel's fields
+	public JTextField getTxtPetName() { return txtPetName; }
+	public JTextField getTxtOwnerName() { return txtOwnerName; }
+	public JComboBox<String> getCmbServiceType() { return cmbServiceType; }
 	public JTextField getTxtDate() { return txtDate; }
 	public JTextField getTxtTime() { return txtTime; }
+	public JTextField getTxtStaff() { return txtStaff; }
 	public JTextArea getTxtNotes() { return txtNotes; }
-	public JButton getBtnAdd() { return btnAdd; }
-	public JButton getBtnUpdate() { return btnUpdate; }
-	public JButton getBtnDelete() { return btnDelete; }
-	public JButton getBtnClear() { return btnClear; }
-	public JTable getTable() { return table; }
-	public DefaultTableModel getTableModel() { return tableModel; }
 }

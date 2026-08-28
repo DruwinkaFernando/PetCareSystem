@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt;
+import model.Pet;
 
 public class PetsGUI extends BaseFormGUI
 {
@@ -27,6 +28,7 @@ public class PetsGUI extends BaseFormGUI
 				{
 					"Pet ID", "Name", "Species", "Breed", "Age", "Gender", "Color", "Health Status", "Vaccination", "Notes"
 				});
+		getBtnAdd().addActionListener(e -> addPet());
 	}
 
 

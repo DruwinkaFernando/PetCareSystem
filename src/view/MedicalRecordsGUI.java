@@ -20,9 +20,22 @@ public class MedicalRecordsGUI extends BaseFormGUI {
 	 * Create the panel.
 	 */
 	public MedicalRecordsGUI() {
-		super("Medical Record Details",
-				new String[] {"ID", "Pet Name", "Owner", "Vet", "Record Type", "Date",
-						"Diagnosis", "Treatment", "Medication", "Notes"});
+	    super(
+	        "Medical Record Details",
+	        "Add, update, or manage medical record information",
+	        new String[] {
+	            "ID",
+	            "Pet Name",
+	            "Owner",
+	            "Vet",
+	            "Record Type",
+	            "Date",
+	            "Diagnosis",
+	            "Treatment",
+	            "Medication",
+	            "Notes"
+	        }
+	    );
 	}
 
 	@Override

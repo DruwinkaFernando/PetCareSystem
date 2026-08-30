@@ -1,7 +1,7 @@
 package view;
 
 import javax.swing.*;
-import java.awt;
+import java.awt.*;
 import model.Pet;
 
 public class PetsGUI extends BaseFormGUI
@@ -17,7 +17,7 @@ public class PetsGUI extends BaseFormGUI
 	private JTextField txtColor;
 	private JTextField txtHealthStatus;
 	private JComboBox<String> cmbVaccinationStatus;
-	private JTextField txtNotes;
+	private JTextArea txtNotes;
 	
 	/**
 		* Create the panel.
@@ -37,12 +37,12 @@ public class PetsGUI extends BaseFormGUI
 	{
 		//Row 0: Pet ID / Name
 		formPanel.add(new JLabel("Pet ID:"), gbc(0, 0, 1, false));
-		txtPetID new JTextField(10);
-		formPanel.add(textPetID, gbc(1, 0, 1, true));
+		txtPetID = new JTextField(10);
+		formPanel.add(txtPetID, gbc(1, 0, 1, true));
 
 		formPanel.add(new JLabel("Name:"), gbc(2, 0, 1, false));
 		txtName = new JTextField(15);
-		formPanel.add(textName, gbc(3, 0, 1, true));
+		formPanel.add(txtName, gbc(3, 0, 1, true));
 
 		//Row 1: Species / Breed
 		formPanel.add(new JLabel("Species:"), gbc(0, 1, 1, false));
@@ -54,12 +54,12 @@ public class PetsGUI extends BaseFormGUI
 
 		formPanel.add(new JLabel("Breed:"), gbc(2, 1, 1, false));
 		txtBreed = new JTextField(15);
-		formPanel.add(textBreed, gbc(3, 1, 1, true));
+		formPanel.add(txtBreed, gbc(3, 1, 1, true));
 
 		// Row 2: Age / Gender
 		formPanel.add(new JLabel("Age:"), gbc(0, 2, 1, false));
 		txtAge = new JTextField(10);
-		formPanel.add(textAge, gbc(1, 2, 1, true));
+		formPanel.add(txtAge, gbc(1, 2, 1, true));
 
 		formPanel.add(new JLabel("Gender:"), gbc(2, 2, 1, false));
 		cmbGender = new JComboBox<>(new String[]
@@ -71,11 +71,11 @@ public class PetsGUI extends BaseFormGUI
 		//Row 3: Color / Health Status
 		formPanel.add(new JLabel("Color:"), gbc(0, 3, 1, false));
 		txtColor = new JTextField(15);
-		formPanel.add(textColor, gbc(1, 3, 1, true));
+		formPanel.add(txtColor, gbc(1, 3, 1, true));
 
 		formPanel.add(new JLabel("Health Status:"), gbc(2, 3, 1, false));
 		txtHealthStatus = new JTextField(15);
-		formPanel.add(textHealthStatus, gbc(3, 3, 1, true));
+		formPanel.add(txtHealthStatus, gbc(3, 3, 1, true));
 
 		//Row 4: Vaccination / Notes
 		formPanel.add(new JLabel("Vaccination:"), gbc(0, 4, 1, false));
@@ -87,10 +87,10 @@ public class PetsGUI extends BaseFormGUI
 
 		formPanel.add(new JLabel("Notes:"), gbc(2, 4, 1, false));
 		txtNotes = new JTextArea(3, 15);
-		txtNotes = setLineWrap(true);
-		txtNotes = setWrapStyleWord(true));
+		txtNotes.setLineWrap(true);
+		txtNotes.setWrapStyleWord(true);
 
-		JcrollPane notesScroll = new JScrollPAne(txtNotes);
+		JScrollPane notesScroll = new JScrollPane(txtNotes);
 		formPanel.add(notesScroll, gbc(3, 4, 1, true));
 
 
@@ -150,51 +150,51 @@ public class PetsGUI extends BaseFormGUI
 	// Getters
 	public JTextField getTxtPetID()
 	{
-		reurn txtPetID;
+		return txtPetID;
 	}
 
 	public JTextField getTxtName()
 	{
-		reurn txtName;
+		return txtName;
 	}
 
 	public JComboBox<String> getcmbSpecies()
 	{
-		reurn cmbSpecies;
+		return cmbSpecies;
 	}
 
 	public JTextField getTxtBreed()
 	{
-		reurn txtBreed;
+		return txtBreed;
 	}
 
 	public JTextField getTxtAge()
 	{
-		reurn txtAge;
+		return txtAge;
 	}
 
 	public JComboBox<String> getcmbGender()
 	{
-		reurn cmbGender;
+		return cmbGender;
 	}
 
 	public JTextField getTxtColor()
 	{
-		reurn txtColor;
+		return txtColor;
 	}
 
 	public JTextField getTxtHealthStatus()
 	{
-		reurn txtHealthStatus;
+		return txtHealthStatus;
 	}
 
 	public JComboBox<String> getcmbVaccinationStatus()
 	{
-		reurn cmbVaccinationStatus;
+		return cmbVaccinationStatus;
 	}
 
-	public JTextField getTxtNotes()
+	public JTextArea getTxtNotes()
 	{
-		reurn txtNotes;
+		return txtNotes;
 	}	   
 }

@@ -101,13 +101,13 @@ public class Dashboard extends JFrame {
 
 		veterinarianbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(Controlpanel, "Veterinarian");
+				cardLayout.show(Controlpanel, "Veterinarians");
 			}
 		});
 
 		Dashboard.add(veterinarianbutton);
 
-				JButton medicalRecordsButton = new JButton("Medical Records");
+				JButton medicalRecordsButton = new JButton("MedicalRecords");
 
 		medicalRecordsButton.setHorizontalAlignment(SwingConstants.LEFT);
 		medicalRecordsButton.setForeground(new Color(128, 128, 192));
@@ -135,16 +135,23 @@ public class Dashboard extends JFrame {
 		PetsGUI Petpanel = new PetsGUI();
 		OwnerGUI Ownerpanel = new OwnerGUI();
 		
+
 		
 		
 AppointmentGUI Appointmentpanel = new AppointmentGUI();
-VeterinariansGUI Veterinarianpanel = new VeterinariansGUI();
+VeterinariansGUI Veterinarianspanel = new VeterinariansGUI();
 MedicalRecordsGUI MedicalRecordsPanel = new MedicalRecordsGUI();
+
+
+	
+
 		
 		Controlpanel.add(Blankpanel, "Dashboard");
 		Controlpanel.add(Petpanel, "Pet");
 		Controlpanel.add(Ownerpanel, "Owner");
 		Controlpanel.add(Appointmentpanel, "Appointment");
+		Controlpanel.add(Veterinarianspanel, "Veterinarians");
+		Controlpanel.add(MedicalRecordsPanel, "MedicalRecords");
 		cardLayout.show(Controlpanel, "Dashboard");
 
 

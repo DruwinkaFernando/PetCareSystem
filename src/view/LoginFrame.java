@@ -6,6 +6,7 @@ import model.User;
 import javax.swing.*;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class LoginFrame extends JFrame {
     private final JTextField txtUsername;
     private final JPasswordField txtPassword;

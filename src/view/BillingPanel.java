@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class BillingPanel extends JPanel {
     private final BillingDAO billingDAO = new BillingDAO();
     private final PetDAO petDAO = new PetDAO();

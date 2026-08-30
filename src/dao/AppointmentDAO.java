@@ -1,11 +1,12 @@
 package dao;
 
 import db.DBConnection;
-import model.Appoinment;
+import model.Appointment;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class AppointmentDAO {
 
     public List<Appointment> getAll() {
@@ -15,8 +16,12 @@ public class AppointmentDAO {
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
-                list.add(new Appointment(rs.getString("appt_id"), rs.getString("date"), rs.getString("time"),
-                        rs.getString("pet_id"), rs.getString("service"), rs.getString("status")));
+                list.add(new Appointment(rs.getString("appt_id"), 
+                		rs.getString("date"), 
+                		rs.getString("time"),
+                        rs.getString("pet_id"), 
+                        rs.getString("service"), 
+                        rs.getString("status")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -10,7 +10,7 @@ public class Appointment implements Serializable{
   private String time;
   private String petId;
   private String service;
-  private String status; //pendinng /confirmed /completed
+  private String status; //Pending /confirmed /completed
 
   public Appointment(String apptId,String date,String time,String petId,String service,String Status){
     this.apptId = apptId;
@@ -18,13 +18,13 @@ public class Appointment implements Serializable{
     this.time = time;
     this.petId = petId;
     this.service = service;
-    this.Status = Status;
+    this.status = Status;
   }
-  public String getApptId{return apptId; }
-  public void setApptId(String apptId){this.appId = appId;}
+  public String getApptId(){return apptId;}
+  public void setApptId(String apptId){this.apptId = apptId;}
   public String getDate(){return date;}
   public void setDate(String date){this.date=date;}
-  public String getTime(){return time};
+  public String getTime(){return time;}
   public void setTime(String time){this.time = time;}
   public String getPetId(){return petId;}
   public void setPetId(String petId){this.petId = petId;}

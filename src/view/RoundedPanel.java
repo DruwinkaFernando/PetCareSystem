@@ -3,7 +3,8 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-// A JPanel with rounded corners, used for the stat "cards" on the dashboard.
+// A JPanel with rounded corners, used for the start "cards" on the dashboard.
+@SuppressWarnings("serial")
 public class RoundedPanel extends JPanel {
     private final int radius;
     private final Color bg;

@@ -3,15 +3,16 @@ package dao;
 import db.DBConnection;
 import model.Admin;
 import model.Staff;
-import.User;
+import model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-  private User mapRow(ResultSet rs) throws SQLException {
-  String id = rs.getString("user_id");
+
+    private User mapRow(ResultSet rs) throws SQLException {
+        String id = rs.getString("user_id");
         String username = rs.getString("username");
         String password = rs.getString("password");
         String fullName = rs.getString("full_name");

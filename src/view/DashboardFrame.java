@@ -1,11 +1,11 @@
 package view;
 
 import model.User;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class DashboardFrame extends JFrame {
     private final User loggedInUser;
     private JPanel contentPanel;
@@ -36,7 +36,7 @@ public class DashboardFrame extends JFrame {
         cardLayout.show(contentPanel, "Dashboard");
     }
 
-    // Builds the sidebar dynamically from user.getAccessibleModules().
+    // Builds the side bar dynamically from user.getAccessibleModules().
     // This is where POLYMORPHISM actually changes the UI: an Admin object
     // and a Staff object return different lists, so each role sees a
     // different set of menu buttons, without any if/else on the class type.

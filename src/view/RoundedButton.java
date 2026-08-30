@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 //A JButton painted with rounded corners to match the pink "pill" buttons
+@SuppressWarnings("serial")
 public class RoundedButton extends JButton {
   private final Color bg;
 

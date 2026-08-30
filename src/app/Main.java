@@ -1,5 +1,6 @@
+package app;
 import db.DBConnection;
-import gui.LoginFrame;
+import view.LoginFrame;
 import javax.swing.*;
 
 public class Main {

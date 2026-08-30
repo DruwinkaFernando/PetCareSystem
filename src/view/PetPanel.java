@@ -7,19 +7,20 @@ import model.Pet;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt;
+import java.awt.*;
 import java.util.List;
 
 public class PetPanel extends JPanel
 {
+	private static final long serialVersionUID = 1L;
 	private final PetDAO petDAO = new PetDAO();
-	private final OwnerDAO petDAO = new PetDAO();
-	private DafaultTableModel model;
+	private final OwnerDAO ownerDAO = new OwnerDAO();
+	private DefaultTableModel model;
 	private JTable table;
 
-	public Petpanel()
+	public PetPanel()
 	{
-		setlayout(new BorderLayout(10, 10));
+		setLayout(new BorderLayout(10, 10));
 		setBackground(UIStyle.LIGHT_BG);
 		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -29,7 +30,7 @@ public class PetPanel extends JPanel
 		title.setFont(UIStyle.FONT_TITLE);
 		top.add(title, BorderLayout.WEST);
 
-		RoundButton addBtn = new RoundButoon("+ Add New Pet", UIStyle.PINK_ACCENT, Color.WHITE);
+		RoundedButton addBtn = new RoundedButton("+ Add New Pet", UIStyle.PINK_ACCENT, Color.WHITE);
 		addBtn.setPreferredSize(new Dimension(160, 36));
 		addBtn.addActionListener(e -> showForm(null));
 		top.add(addBtn, BorderLayout.EAST);
@@ -39,7 +40,7 @@ public class PetPanel extends JPanel
 		model = new DefaultTableModel(cols, 0){
 			public boolean isCellEditable(int r, int C){ return false; }
 		};
-		table = new JTable(Model);
+		table = new JTable(model);
 		table.setRowHeight(28);
 		add(new JScrollPane(table), BorderLayout.CENTER);
 
@@ -58,7 +59,7 @@ public class PetPanel extends JPanel
 
 	private void refreshTable(){
 		model.setRowCount(0);
-		for (Pet p : petDao.getAll()){
+		for (Pet p : petDAO.getAll()){
 			model.addRow(new Object[]{p.getPetId(), p.getName(), p.getSpecies(), p.getBreed(), p.getAge(), p.getGender(), p.getOwnerId()});
 		}
 	}

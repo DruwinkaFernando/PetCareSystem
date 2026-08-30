@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class OwnerPanel extends JPanel {
     private final OwnerDAO ownerDAO = new OwnerDAO();
     private DefaultTableModel model;

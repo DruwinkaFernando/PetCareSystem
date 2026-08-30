@@ -89,7 +89,40 @@ public class Dashboard extends JFrame {
 			}
 		});
 		Dashboard.add(appointmentbutton);
-		
+
+		JButton veterinarianbutton = new JButton("Veterinarians");
+
+		veterinarianbutton.setHorizontalAlignment(SwingConstants.LEFT);
+		veterinarianbutton.setForeground(new Color(128, 128, 192));
+		veterinarianbutton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		veterinarianbutton.setBackground(new Color(224, 255, 255));
+
+		veterinarianbutton.setBounds(0, 213, 147, 57);
+
+		veterinarianbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(Controlpanel, "Veterinarian");
+			}
+		});
+
+		Dashboard.add(veterinarianbutton);
+
+				JButton medicalRecordsButton = new JButton("Medical Records");
+
+		medicalRecordsButton.setHorizontalAlignment(SwingConstants.LEFT);
+		medicalRecordsButton.setForeground(new Color(128, 128, 192));
+		medicalRecordsButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		medicalRecordsButton.setBackground(new Color(224, 255, 255));
+
+		medicalRecordsButton.setBounds(0, 268, 147, 57);
+
+		medicalRecordsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.show(Controlpanel, "MedicalRecords");
+			}
+		});
+
+		Dashboard.add(medicalRecordsButton);
 		Controlpanel = new JPanel();
 		Controlpanel.setBounds(144, 49, 822, 464);
 		Dashboard.add(Controlpanel);
@@ -100,11 +133,13 @@ public class Dashboard extends JFrame {
 		Blankpanel.setBackground(Color.WHITE);
 		
 		PetsGUI Petpanel = new PetsGUI();
+		OwnerGUI Ownerpanel = new OwnerGUI();
 		
-		JPanel Ownerpanel = new JPanel();
-		Ownerpanel.setBackground(Color.CYAN);
-		JPanel Appointmentpanel = new JPanel();
-		Appointmentpanel.setBackground(Color.PINK);
+		
+		
+AppointmentGUI Appointmentpanel = new AppointmentGUI();
+VeterinariansGUI Veterinarianpanel = new VeterinariansGUI();
+MedicalRecordsGUI MedicalRecordsPanel = new MedicalRecordsGUI();
 		
 		Controlpanel.add(Blankpanel, "Dashboard");
 		Controlpanel.add(Petpanel, "Pet");
